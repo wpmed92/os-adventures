@@ -14,3 +14,13 @@ done:
   popa ;pop all registers, restore them to the state before function execution
   ret ;return from subroutine
 
+print_nl:
+  pusha
+  mov ah, 0x0e
+  mov al, 10 ;line feed
+  int 0x10
+  mov al, 13 ;carriage return
+  int 0x10
+  popa
+  ret
+
