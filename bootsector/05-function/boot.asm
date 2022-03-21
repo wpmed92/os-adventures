@@ -4,10 +4,17 @@
 mov bx, msg
 call print
 
-boot:
-  jmp boot ;our infinite loop
+mov dx, 0x1224
+call print_hex
+
+;jmp $ is short for
+;boot:
+; jmp boot
+
+jmp $
 
 %include 'print.asm'
+%include 'print_hex.asm'
 
 msg:
   db 'This is a message from a bootsector. How cool is that?', 0
